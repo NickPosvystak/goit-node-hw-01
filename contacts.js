@@ -10,20 +10,12 @@ const listContacts = async () => {
   // ...твій код. Повертає масив контактів.
   try {
     const jsonReadContacts = await fs.readFile(contactsPath);
-    
+
     return JSON.parse(jsonReadContacts);
   } catch (error) {
     console.log(error);
   }
 };
-// (async () => {
-//     try {
-//         const result = await listContacts();
-//         console.log(result)
-//     } catch (error) {
-//         console.log('Error:', error.message)
-//     }
-// })
 
 const getContactById = async (contactId) => {
   // ...твій код. Повертає об'єкт контакту з таким id. Повертає null, якщо контакт з таким id не знайдений.
@@ -59,9 +51,7 @@ const removeContact = async (contactId) => {
 const addContact = async (name, email, phone) => {
   // ...твій код. Повертає об'єкт доданого контакту.
   try {
-    // const jsonRead = await fs.readFile(contactsPath);
     const contacts = await listContacts();
-    // const json = JSON.parse(jsonRead);
     const newContact = {
       id: Date.now(),
       name,
